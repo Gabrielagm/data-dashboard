@@ -140,52 +140,58 @@ nav{
 }
 
 .specialization h2 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .specialization form {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .specialization input, .specialization p{
-    display: inline-block;
-    font-size: 1.1em;
-    margin: 5px 0;
-    padding-left: 10px;
+  display: inline-block;
+  font-size: 1.1em;
+  margin: 5px 0;
+  padding-left: 10px;
 }
 
 .specialization input[type="checkbox"]{
-    appearance: none;
+  appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    border: 1px solid #f7b617;
-    width: 15px;
-    height: 15px;
-    border-radius: 2px;
-    margin: 0 5px 0 0;
+  border: 1px solid #f7b617;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  margin: 0 5px 0 0;
 }
 
 .search {
-    background-color: #fff;
-    display: inline-block;
-    height: 45px;
-    margin-left: 20px;
-    vertical-align: top;
-    width: 70%;
-}
-
-.search div {
+  background-color: #fff;
+  border-radius: 3px;
+  display: inline-block;
+  height: 45px;
+  margin-left: 20px;
+  vertical-align: top;
+  width: 70%;
+  box-shadow: 2px 2px 1px 0px rgba(204,204,204,1); 
+  -webkit-box-shadow: 2px 2px 1px 0px rgba(204,204,204,1);
+  -moz-box-shadow: 2px 2px 1px 0px rgba(204,204,204,1);
+  
 }
 
 .search div:before { /*no se puede con input ni div, creo un contenedor para que almacene al input*/
-    font-family: 'FontAwesome';
-    content: "\f002";
-    display: inline-block;
-    font-size: 30px;
+  content: "\f002";
+  color: #cacaca;
+  display: inline-block;
+  font-family: 'FontAwesome';
+  font-size: 30px;
+  margin: 5px;
 }
 
 .search input {
-    border: none;
-    width: 90%;
-    outline: none;
+  border: none;
+  height: 25px;
+  outline: none;
+  vertical-align: text-bottom;
+  width: 90%;
 }
