@@ -164,3 +164,28 @@ nav{
     border-radius: 2px;
     margin: 0 5px 0 0;
 }
+
+.search {
+    background-color: #fff;
+    display: inline-block;
+    height: 45px;
+    margin-left: 20px;
+    vertical-align: top;
+    width: 70%;
+}
+
+.search div {
+}
+
+.search div:before { /*no se puede con input ni div, creo un contenedor para que almacene al input*/
+    font-family: 'FontAwesome';
+    content: "\f002";
+    display: inline-block;
+    font-size: 30px;
+}
+
+.search input {
+    border: none;
+    width: 90%;
+    outline: none;
+}
