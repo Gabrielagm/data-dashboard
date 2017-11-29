@@ -1,17 +1,27 @@
 window.addEventListener('load', function(event){
   var chooseGeneration = document.querySelector('.choose-sede-generation');
   console.log(chooseGeneration);
-  
+  debugger
   chooseGeneration.addEventListener('click', function(e){
-    var count;
+    var count = 0;
 	/*Vamos a recorrer las SEDES*/
-	for(var i = 0; i <= Object.keys(data).length; i++){
+	
+	for(var i = 0; i < Object.keys(data).length; i++){
 	  count++;
-      var listCity = document.createElement('option');
+      var listCity = document.createElement('optgroup');
+	  listCity.setAttribute('label',Object.keys(data)[i]);
 	  var listText = document.createTextNode(Object.keys(data)[i]);
-	  listCity.setAttribute("value","bla");
 	  listCity.appendChild(listText);
 	  chooseGeneration.appendChild(listCity);
+	  
+	  for(var j = 0; j < Object.keys(data[Object.keys(data)[i]]).length; j++){
+	    /*count++;*/
+		var listGeneration = document.createElement('option');
+		var textGeneration = document.createTextNode(Object.keys(data[Object.keys(data)[i]])[j]);
+		listGeneration.appendChild(textGeneration);
+		listCity.appendChild(listGeneration);
+		  
+	  }
 	}
   });
   
