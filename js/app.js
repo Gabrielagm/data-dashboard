@@ -8,7 +8,7 @@ window.addEventListener('load', function(event){
 	for(var i = 0; i <= Object.keys(data).length; i++){
 	  count++;
       var listCity = document.createElement('option');
-	  var listText = document.createTextNode('bla');
+	  var listText = document.createTextNode(Object.keys(data)[i]);
 	  listCity.setAttribute("value","bla");
 	  listCity.appendChild(listText);
 	  chooseGeneration.appendChild(listCity);
