@@ -142,12 +142,12 @@ nav{
 }
 
 .boxes-top{
-    width:23em;
+    width:31%;
     height:22.5em;
     float:left; 
     padding:1.3em;
     background-color:#fff;
-    margin-right:1.3em;
+    margin: 1em;
 }
 
 .boxes-top-content{
@@ -183,6 +183,7 @@ nav{
     background-color:#fff;
     clear:both;
     outline:1px solid black; 
+    margin: 10px 0 35px 0;
  }
 
 .boxes-medium h4{
@@ -230,7 +231,7 @@ nav{
 }
 
 .graphic-bar img{
-    width:100%;
+    width:70%;
 }
 
 .graphic-circle{
