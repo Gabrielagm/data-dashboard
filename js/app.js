@@ -7,7 +7,7 @@ window.addEventListener('load', function(event){
   
   
   optgroupt.addEventListener('change', function(event){
-    debugger
+    //debugger
     console.log(event.target.value);
     
     for(var i = 0; i <= Object.keys(data).length; i++){
@@ -20,18 +20,6 @@ window.addEventListener('load', function(event){
           listGeneration.appendChild(textGeneration);
           generation.appendChild(listGeneration);
 
-          
-          
-          /*hacer un bucle para que recorra el contenido de Generation y si tiene contenido igual a sede, dejarlo, si no , borrarlo
-          
-            generation.removeChild(sede[0]);
-            generation.removeChild(sede[1]);
-            generation.removeChild(sede[2]);
-            generation.removeChild(sede[3]);
-            if(Object.values(data)[j] ===)
-          console.log(Object.values(data)[j]);{
-            
-          } */
         }
         optgroupt.addEventListener('click', function(){
             var sede = document.getElementsByClassName('generation-sede');
@@ -41,60 +29,58 @@ window.addEventListener('load', function(event){
           });   
       }
     }
+    
+    /*STUDENT SATISFACTION */
+    for (var satisfaction in data) {
+      if(satisfaction === event.target.value){ //reemplazar por dataalumns en el evento al jalar optgroupt
+        var dataSatisfaction = {};
+        dataSatisfaction = data[satisfaction];
+      }     
+    }
+    console.log(dataSatisfaction); //{2017-1: {…}, 2017-2: {…}} --> value de cada sede
 
+    //Contenido de cada generación guardado en dataS
+    for(var g in dataSatisfaction){
+      var dataG = {};
+      dataG = dataSatisfaction[g];
+    }
+    console.log(dataG); //{students: Array(14), ratings: Array(2)}
+    console.log(dataG.ratings); //Objeto contenido en "ratings"
     
+    //accediendo a student y su contenido
+    for (var s in dataG.ratings){
+      var bla = {};
+      bla = dataG.ratings[s];
+      var bla2 = bla.student;
+      /*var dataRating = {};
+      if (dataG === ratings){
+        dataRating = dataG;
+      }*/
+      //dataRating = dataG[s];
+    }
+    console.log(bla);
+    console.log(bla.student);
+    console.log(bla2);
+    console.log(s);
     
 
-    
-          
-          /*limpiando generation 
-          
-    console.log(sede[0]);
-    console.log(sede[1]);
-    console.log(sede[2]);
-    console.log(sede[3]);*/
+
   });
 
-  
-
-    
+   
 });
 
-    
-    /*optgroupt.addEventListener('click', function(){      
-    generation.innerHTML = '';
-    });
-    
-    generation.addEventListener('toggle', myFunction);
-    });  
-    function myFunction() {
-      alert("The ontoggle event occured.");
-    } */
- 
-
-//debugger
-/*
-console.log(Object.keys(data));//["AQP", "CDMX", "LIM", "SCL"]
-console.log(Object.values(data));//[{…}, {…}, {…}, {…}]
-console.log(Object.values(data)[0]);
-console.log([...Object.values(data)])
-console.log([...Object.values(data)][0])
-console.log(Object.values(data)[0])
-console.log(Object.keys(Object.values(data)[0]).length);
-//console.log(Object.keys(Object.keys(data)));
-var sedes=Object.keys(data);
-//debugger
-/*
-Para crear dinámicamente el select que está en el lado derecho.
-Lo hace Gaby
-for(var i =0; i<Object.keys(data).length;i++){
-    
-    for(var j =0; j< Object.keys(Object.keys(data)[i]).length;j++){
-       console.log(array.push(Object.keys(Object.values(data)[j])));
-    }
   
-}*/
-
- 
   
-  // Puedes hacer uso de la base de datos a través de la variable `data`
+  
+  /*Evento para el student satisfaction 
+  var sedevalue = Object.values(data); //Array del contenido de cada sede
+  console.log(sedevalue.length);
+    debugger
+    for( var l = 0; l < sedevalue.length; l++ ){
+      console.log(sedevalue[l]);
+      for (var m = 0; m < sedevalue[l].length; m++){
+        console.log(sedevalue[sedevalue[m]]);
+      }
+  }
+  console.log(sedevalue[0]["2016-2"]["ratings"][0]["jedi"]); */
