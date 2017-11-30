@@ -5,46 +5,67 @@ window.addEventListener('load', function(event){
   var generation = document.getElementById('generation');
   var enrollment = document.getElementById('enrollment');
   
+  
   optgroupt.addEventListener('change', function(event){
-    //debugger
-    //console.log(event.target.value);
+    debugger
+    console.log(event.target.value);
     
     for(var i = 0; i <= Object.keys(data).length; i++){
       if(event.target.value === Object.keys(data)[i]){
         for(var j = 0; j < Object.keys(data[Object.keys(data)[i]]).length; j++){
           /*creando los option */
           var listGeneration = document.createElement('option');
-          listGeneration.classList.add('generation');
+          listGeneration.classList.add('generation-sede');
           var textGeneration = document.createTextNode(Object.keys(data[Object.keys(data)[i]])[j]);
           listGeneration.appendChild(textGeneration);
           generation.appendChild(listGeneration);
-          /*hacer un bucle para que recorra el contenido de Generation y si tiene contenido igual a sede, dejarlo, si no , borrarlo*/
-          if(generation[j]){
-            console.log(generation[j].value);
-          } /*falta var classie = document.getElementsByClassName[1]
-          undefined
-          classie
-          undefined
-          classie = document.getElementsByClassName('generation')[1]
-          <option class=​"generation">​2016-2​</option>​
-          classie
-          <option class=​"generation">​2016-2​</option>​
-          classi = document.getElementsByClassName('generation')
-          (3) [select#generation.generation, option.generation, option.generation, generation: select#generation.generation]
-          classi[1]
-          <option class=​"generation">​2016-2​</option>​
-          llamar por clase y posición i o j
-          */
-        }    
+
+          
+          
+          /*hacer un bucle para que recorra el contenido de Generation y si tiene contenido igual a sede, dejarlo, si no , borrarlo
+          
+            generation.removeChild(sede[0]);
+            generation.removeChild(sede[1]);
+            generation.removeChild(sede[2]);
+            generation.removeChild(sede[3]);
+            if(Object.values(data)[j] ===)
+          console.log(Object.values(data)[j]);{
+            
+          } */
+        }
+        optgroupt.addEventListener('click', function(){
+            var sede = document.getElementsByClassName('generation-sede');
+            for(var k = 0; k < sede.length; k++){
+              generation.removeChild(sede[k]);
+            }
+          });   
       }
     }
+
+    
+    
+
+    
+          
+          /*limpiando generation 
+          
+    console.log(sede[0]);
+    console.log(sede[1]);
+    console.log(sede[2]);
+    console.log(sede[3]);*/
   });
+
+  
 
     
 });
 
     
-    /*generation.addEventListener('toggle', myFunction);
+    /*optgroupt.addEventListener('click', function(){      
+    generation.innerHTML = '';
+    });
+    
+    generation.addEventListener('toggle', myFunction);
     });  
     function myFunction() {
       alert("The ontoggle event occured.");
