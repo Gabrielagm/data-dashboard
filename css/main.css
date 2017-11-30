@@ -60,12 +60,22 @@ nav{
  
 }
 
-.choose-sede-generation h3{
-   display:inline-block;
-  position:absolute;
-  left:550px;
-  top:15px;
-    width:  300px;
+.title{
+    //display:inline-block;
+    position:absolute;
+    left:410px;
+    top:15px;
+    width: 500px;
+    text-align:center;
+}
+
+.title-gen{
+    //display:inline-block;
+    position:absolute;
+    left:400px;
+    top:50px;
+    width:300px;
+    text-align:right;
 }
 
 .optgroupt{
@@ -75,7 +85,16 @@ nav{
     cursor:pointer;
 }
 
-.generation{
+.divgeneration{
+    outline:1px solid black;
+    position:absolute;
+    left:1000px;
+    top:40px;
+    width:300px;
+    height:70px;
+}
+
+.generations{
     position:absolute;
     left:1000px;
     top:40px;
@@ -83,6 +102,10 @@ nav{
     margin-top:1em;
     background:white;
     cursor:pointer;
+}
+
+.html-select{
+
 }
 
 .menu-nav{
@@ -119,12 +142,12 @@ nav{
 }
 
 .boxes-top{
-    width:23em;
+    width:31%;
     height:22.5em;
     float:left; 
     padding:1.3em;
     background-color:#fff;
-    margin-right:1.3em;
+    margin: 1em;
 }
 
 .boxes-top-content{
@@ -160,6 +183,7 @@ nav{
     background-color:#fff;
     clear:both;
     outline:1px solid black; 
+    margin: 10px 0 35px 0;
  }
 
 .boxes-medium h4{
@@ -207,7 +231,7 @@ nav{
 }
 
 .graphic-bar img{
-    width:100%;
+    width:70%;
 }
 
 .graphic-circle{
