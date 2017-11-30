@@ -49,20 +49,18 @@ window.addEventListener('load', function(event){
     
     //accediendo a student y su contenido
     for (var s in dataG.ratings){
-      var bla = {};
-      bla = dataG.ratings[s];
-      var bla2 = bla.student;
-      /*var dataRating = {};
-      if (dataG === ratings){
-        dataRating = dataG;
-      }*/
-      //dataRating = dataG[s];
+      var dataStudent = {};
+      dataStudent = dataG.ratings[s]; //{sprint: 2, nps: {…}, student: {…}, teacher: 4.1, jedi: 4.2}
+      var dataExpectation = dataStudent.student;  //{no-cumple: 6, cumple: 75, supera: 19}
     }
-    console.log(bla);
-    console.log(bla.student);
-    console.log(bla2);
-    console.log(s);
-    
+  
+    for (var nc in dataExpectation){
+      var noCumple = {};
+      if(dataExpectation["no-cumple"]===false){
+        console.log(funciona);
+      }
+    }
+    console.log(dataExpectation["no-cumple"]); // valor de no-cumple : 6
 
 
   });
