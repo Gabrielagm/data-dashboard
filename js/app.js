@@ -215,13 +215,32 @@ window.addEventListener('load', function(event) {
             var datesRating = {};
             datesRating = datesGen[r];
         }
-        console.log(datesRating[0].student);
-        console.log(event.target.value);
-        console.log(Object.values(dataSede));
-        console.log(Object.keys(data[sede])[0])
+        console.log(datesRating[0].student); //{no-cumple: 0, cumple: 80, supera: 20}
+        console.log(event.target.value); //2016-2
+        console.log(Object.values(dataSede)); // [{…}, {…}] --> objeto que almacena objeto student[0] y demás
+        console.log(Object.keys(data[sede])[0]) //2016-2
+        console.log(dataSede[event.target.value]); //{students: Array(15), ratings: Array(4)}
+        console.log(dataSede[event.target.value].ratings);
         //si Datasede[x] === al que se dio click, buscar datesRating[0].student
         if(event.target.value ===Object.keys(data[sede])[0]){
-            alert("vamos bien");
+          //debugger
+          //Recorrer cada sede y que busque lo que deseo
+          var ratings = dataSede[event.target.value].ratings;
+          console.log(ratings);
+          console.log(ratings.length);//4
+          console.log(ratings[0]) //jala el primero --> {sprint: 1, nps: {…}, student: {…}, teacher: 3.6, jedi: 3.6}
+          console.log(ratings[0].student);
+          console.log(ratings[0].student.cumple);
+          console.log(ratings[0].student.supera);
+          console.log(datesRating);
+          console.log(datesRating[0].student);
+          var count = 0;
+          for(var w = 0; w < ratings.length;w++){
+            count++;
+            console.log(ratings[w].student.cumple);
+            console.log(count);
+          }
+            console.log(datesRating[0].student);
         }
 
 
