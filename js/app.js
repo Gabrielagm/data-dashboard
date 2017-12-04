@@ -8,7 +8,7 @@ window.addEventListener('load', function(event) {
     var titleGen = document.getElementById('title-gen');
   
     optgroupt.addEventListener('change', function(event) {
-      console.dir(event.target.value);// cada vez que escoja una opción, me arrojará su valor:AQP,LIM,CDMX,SLC.
+      //console.dir(event.target.value);// cada vez que escoja una opción, me arrojará su valor:AQP,LIM,CDMX,SLC.
       var sede = event.target.value;
       if (sede === 'AQP') {
         title.textContent = '';
@@ -36,7 +36,7 @@ window.addEventListener('load', function(event) {
             otherlistGeneration.classList.add('generations');
             var textGeneration = document.createTextNode(Object.keys(data[sede])[j]);
             otherlistGeneration.appendChild(textGeneration);
-            generation.appendChild(otherlistGeneration); 
+            generation.appendChild(otherlistGeneration);
           }
           // para limpiar y qie no se repita
           optgroupt.addEventListener('click', function() {
@@ -49,22 +49,22 @@ window.addEventListener('load', function(event) {
       } 
       generation.addEventListener('change', function(event) {   
         titleGen.textContent = event.target.value;
-        console.log(Object.keys(data));// devuelve ["AQP", "CDMX", "LIM", "SCL"]
-        console.log(sede);// me devuelve el nombre de la sede elegida en el anterior evento.
-        console.log(Object.keys(data[sede]));// devuelve ["2016-2", "2017-1"] (sede:representa la propiedad del objeto data elegido en el anterior evento)
+        //console.log(Object.keys(data));// devuelve ["AQP", "CDMX", "LIM", "SCL"]
+        //console.log(sede);// me devuelve el nombre de la sede elegida en el anterior evento.
+        //console.log(Object.keys(data[sede]));// devuelve ["2016-2", "2017-1"] (sede:representa la propiedad del objeto data elegido en el anterior evento)
         for (var item in data) {
           if (item === sede) {
             var dataSede = {};
             dataSede = data[item];
           }
         }
-        console.log(dataSede);// me devuelve el contenido de la sede elegida: {2016-2: {…}, 2017-1: {…}, 2017-2: {…}}
+        //console.log(dataSede);// me devuelve el contenido de la sede elegida: {2016-2: {…}, 2017-1: {…}, 2017-2: {…}}
   
         for (var p in dataSede) {
           var datesGen = {};
           datesGen = dataSede[p];
         }
-        console.log(datesGen);//me muestra en un objeto:{students: Array(61), ratings: Array(2)}
+        //console.log(datesGen);//me muestra en un objeto:{students: Array(61), ratings: Array(2)}
   
         for (var i in dataSede) {
           if (i === event.target.value) {
@@ -73,6 +73,7 @@ window.addEventListener('load', function(event) {
           }
         }
         console.log(dataAlumns);// tengo a todos los estudiantes de la sede y generación elegida en un array
+        console.log(dataAlumns.length);
   
         for (var m in dataSede) {
           if (m === event.target.value) {
@@ -80,7 +81,7 @@ window.addEventListener('load', function(event) {
             dataRatings = dataSede[m].ratings;
           }
         }
-        console.log(dataRatings);// tengo el contenido de dataRatings por generación elegida. ejem: (3) [{…}, {…}, {…}]
+        //console.log(dataRatings);// tengo el contenido de dataRatings por generación elegida. ejem: (3) [{…}, {…}, {…}]
   
         var contGoal = 0;// que alcanzaron la meta
         var contTech = 0;
@@ -129,9 +130,9 @@ window.addEventListener('load', function(event) {
             }
           }
         }
-        console.log(contTech);// número de estudiantes que pasaron el mínimo requerido en tech
-        console.log(contHse);// número de estudiantes que pasaron el mínimo requerido en hse
-        console.log(contGoal);// número de estudiantes que pasaron el mínimo requerido en ambos skills
+        //console.log(contTech);// número de estudiantes que pasaron el mínimo requerido en tech
+        //console.log(contHse);// número de estudiantes que pasaron el mínimo requerido en hse
+        //console.log(contGoal);// número de estudiantes que pasaron el mínimo requerido en ambos skills
         var retired = ((contInactive * 100) / dataAlumns.length).toFixed(1);
         var studentAchievement = ((contGoal * 100) / dataAlumns.length).toFixed(1);
         var neoTech = ((contTech / (dataAlumns.length - contInactive)) * 100).toFixed(1);
@@ -201,21 +202,30 @@ window.addEventListener('load', function(event) {
         averageNps.textContent = '';
         averageNps.textContent = resultNps;           
       
-
-        //Parte Student satisfaction (para últimos gráficos)
-        //1.recorrer las alumnas y buscar el dato que necesito.¨
-        for (var p in dataSede) {
-            var datesGen = {};
-            datesGen = dataSede[p];
-          }
-        console.log(dataSede);
-          console.log(datesGen);//me muestra en un objeto:{students: Array(61), ratings: Array(2)}
+        /*ULTIMOS GRAFICOS */
+        //Parte Student satisfaction
+        console.log(dataSede); //{2016-2: {…}, 2017-1: {…}}
+        console.log(datesGen);//me muestra en un objeto:{students: Array(15), ratings: Array(3)}
         
         for (var r in datesGen) {
-            var datesRating = {};
-            datesRating = datesGen[r];
+          var datesSprint = {};
+          datesSprint = datesGen[r];
         }
-        console.log(datesRating[0].student); //{no-cumple: 0, cumple: 80, supera: 20}
+        console.log(datesSprint); // array de objetos [{…}, {…}, {…}] --> cada uno tiene {sprint: 1, nps: {…}, student: {…}, teacher: 4.7, jedi: 4.9}
+        
+        for (var s in datesSprint) {
+          var dataRating = {};
+          dataRating = datesSprint[s];
+        }
+        console.log(dataRating); //{sprint: 3, nps: {…}, student: {…}, teacher: 3.4, jedi: 4.1}
+        var student = dataRating.student;
+        console.log(student); //{no-cumple: 9, cumple: 72, supera: 19}
+        console.log(student.cumple);
+        console.log(student.supera);
+
+       
+        //if(student.){} 
+
         console.log(event.target.value); //2016-2
         console.log(Object.values(dataSede)); // [{…}, {…}] --> objeto que almacena objeto student[0] y demás
         console.log(Object.keys(data[sede])[0]) //2016-2
@@ -230,18 +240,48 @@ window.addEventListener('load', function(event) {
           console.log(ratings.length);//4
           console.log(ratings[0]) //jala el primero --> {sprint: 1, nps: {…}, student: {…}, teacher: 3.6, jedi: 3.6}
           console.log(ratings[0].student);
+          console.log(Object.keys(ratings[0]));
           console.log(ratings[0].student.cumple);
           console.log(ratings[0].student.supera);
-          console.log(datesRating);
-          console.log(datesRating[0].student);
-          var count = 0;
+          var numSatisfaction = document.getElementById("expectation-number");
+          var teacherRating = document.getElementById("teacher-rating");
+          var jediRating = document.getElementById("jedi-rating");
+          var cumple = 0;
+          var supera = 0;
+          var teacherScore = 0;
+          var jediScore = 0;
           for(var w = 0; w < ratings.length;w++){
-            count++;
-            console.log(ratings[w].student.cumple);
-            console.log(count);
+            //cumple = cumple + ratings[w].student.cumple;
+            supera = supera + ratings[w].student.supera ;
+            // var sum = cumple + supera ;
+            console.log(supera);
+            numSatisfaction.innerHTML = supera;
+            //teacher rating
+            console.log(ratings); //array con cada sprint de la generación elegida / 
+            teacherScore = teacherScore + ratings[w].teacher; //Suma de todos los puntajes de Teacher
+            var averageTeacher = teacherScore / ratings.length; // suma total todos los puntajes entre la cantidad de sprint.
+            var teacherFixed = averageTeacher.toFixed(1);
+            console.log(teacherFixed);
+            console.log(teacherRating);
+            teacherRating.innerHTML =  teacherFixed;
+            //Jedi Rating
+            jediScore = jediScore + ratings[w].jedi;
+            console.log(jediScore);
+            var averageJedi = jediScore / ratings.length;
+            console.log(averageJedi);
+            var jediFixed = averageJedi.toFixed(1);
+            console.log(jediFixed);
+            jediRating.innerHTML = jediFixed;
+            console.log(jediRating);
+
+
+          
           }
-            console.log(datesRating[0].student);
+           //console.log(datesRating[0].student);
         }
+
+        /*TEACHER RATING*/
+
 
 
 
